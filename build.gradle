@@ -22,15 +22,15 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'io.cucumber:cucumber-java8:${cucumberVer}'
-    testImplementation 'io.cucumber:cucumber-junit:${cucumberVer}'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:${junitVer}'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:${junitVer}'
-    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:${junitVer}'
+    testImplementation "io.cucumber:cucumber-java8:${cucumberVer}"
+    testImplementation "io.cucumber:cucumber-junit:${cucumberVer}"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVer}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVer}"
+    testRuntimeOnly "org.junit.vintage:junit-vintage-engine:${junitVer}"
 
-    implementation 'org.seleniumhq.selenium:selenium-java:${seleniumVer}'
-    implementation 'io.appium:java-client:${appiumVer}'
-    implementation 'com.googlecode.json-simple:json-simple:${jsonSimpleVer}'
+    implementation "org.seleniumhq.selenium:selenium-java:${seleniumVer}"
+    implementation "io.appium:java-client:${appiumVer}"
+    implementation "com.googlecode.json-simple:json-simple:${jsonSimpleVer}"
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -43,12 +43,6 @@ java {
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
-}
-
-configuration {
-    cucumberRuntime {
-        extendsFrom testImplementation
-    }
 }
 
 
