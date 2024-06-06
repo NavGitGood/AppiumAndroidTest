@@ -84,3 +84,25 @@ if any of the above commands do not work, make sure that following environment v
 4. appPackage (after launching the app in emulator) `adb -s device_key shell dumpsys window displays | grep -e mCurrentFocus" |awk -F/ '{print $1}'`
 5. appActivity (after launching the app in emulator) `adb -s device_key shell dumpsys window displays | grep -e mCurrentFocus" |awk -F/ '{print $2}'`
 6. app -> path to apk (either your local system or a remote location), required only if you want to install the app via Appium and not adb
+
+# prepare Appium Inspector
+1. Start Appium Inspector
+2. Start Appium Server (if not started already) and copy the server address (host:port)
+3. Use above host:port values in remote host and remote port section of Appium Inspector
+4. Launch an AVD (explained in a previous section) if not running already
+5. Get the values for capabilities (explained in above section) and paste in Capability Builder of Appium Inspector
+e.g.
+```
+{
+  "automationName": "uiautomator2",
+  "platformName": "Android",
+  "platformVersion": "14.0",
+  "appPackage": "com.example.interactivemicroapps",
+  "appActivity": "com.example.interactivemicroapps.MainActivity",
+  "deviceName": "emulator-5554"
+}
+```
+6. Click on start session
+
+
+
