@@ -23,11 +23,11 @@ if any of the above commands do not work, make sure that following environment v
 - NODE_HOME
 - PATH
 
-# verify if all the prequisites are available
+# verify if all the prerequisites are available
  - android `appium driver doctor uiautomator2`
  - ios `appium driver doctor xcuitest`
 
-# prepare your app
+# prepare your app (build from '[Android App](https://github.com/NavGitGood/AndroidInteractiveMicroApps)')
 1. if you get an apk, put it in apps/androidAPK folder
 2. if you get an aab file use following steps to extract the apk (acces to keystore used in signing the app is must)
  - download Android Bundletool 'https://github.com/google/bundletool/releases'
@@ -85,7 +85,7 @@ if any of the above commands do not work, make sure that following environment v
 5. appActivity (after launching the app in emulator) `adb -s device_key shell dumpsys window displays | grep -e mCurrentFocus" |awk -F/ '{print $2}'`
 6. app -> path to apk (either your local system or a remote location), required only if you want to install the app via Appium and not adb
 
-# prepare Appium Inspector
+# prepare Appium Inspector (not required when running tests)
 1. Start Appium Inspector
 2. Start Appium Server (if not started already) and copy the server address (host:port)
 3. Use above host:port values in remote host and remote port section of Appium Inspector
@@ -104,5 +104,9 @@ e.g.
 ```
 6. Click on start session
 
+# run tests
+gradle clean test
 
-
+# troubleshooting
+1. if avd is not detected by appium, try `adb devices`
+2. if `adb devices` is empty, try `adb kill-server` and then `adb start-server`
