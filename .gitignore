@@ -31,3 +31,6 @@ build
 
 .idea/
 .vscode/
+
+local.commands
+target
